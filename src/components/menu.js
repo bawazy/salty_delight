@@ -30,9 +30,9 @@ export class menu extends Component {
     <div>
         <h1>OUR MENU </h1>
         
-        <ul>
+        <ul >
         {this.state.menus.map(menu => {
-          return <MenuItem  index={menu.id} title={menu.title}/>
+          return <MenuItem key={menu.id} index={menu.id} title={menu.title}/>
         })}
           
         </ul>
