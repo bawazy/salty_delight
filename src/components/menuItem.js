@@ -1,10 +1,8 @@
 import React from 'react'
 
- const menuItem=props =>{
-  return (props.menu.map=menuItem=>(
-    <ul>
-      <li>{menuItem}</li>
-    </ul>
-  ))
+ const menuItem = props =>{
+  return (  
+      <li>{props.title}</li>
+  ) 
 }
 export default menuItem
