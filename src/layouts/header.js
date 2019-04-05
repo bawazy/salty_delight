@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
       <div className='links'>
             <Link className='linkStyle' to='/'>Home</Link>
             <Link className='linkStyle' to='/menu'>Menu</Link>
-            <Link className='linkStyle' to='/order'><button className='ordbtn'>Order</button></Link>
+            <Link className='linkStyle' to='/contact'><button className='conbtn'>Contact Us</button></Link>
       </div>
 
     </div>

@@ -25,7 +25,6 @@ import showcase from './img/food-1.jpg'
         </div>
         
         <div>
-        <h1>DELIVERY</h1>
         CURRENT AVERAGE DELIVERY TIME <span className='deliveryT1'>2</span> <span className='deliveryT2'>5</span> mins 
         </div>
     </div>
