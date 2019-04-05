@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MenuItem from './menuItem'
-import SubItem  from './subItem'
+import SubItem, { subItem }  from './subItem'
 
 export class menu extends Component {
   state = {
@@ -72,15 +72,20 @@ export class menu extends Component {
         <ul className='menus'>
         {this.state.menus.map(menu => {
           return <MenuItem key={menu.id} index={menu.id} title={menu.title}/>
-        })}   
+        {menu.subItems.map(subItem=>{
+          return <SubItem title ={subItem.itemName}/>
+        })}
+      }   
+        )}
         </ul>
-
+        
+{/* 
         <ul>
         {this.state.menus.subItems.map(subItem =>{
           return <SubItem title ={subItem.title}/>
         })}
         </ul>
-      
+       */}
 
 
     </div>
