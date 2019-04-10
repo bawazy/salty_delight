@@ -2,8 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
  const menuItem = props =>{
+   const { handleSubItems, menu} = props
   return (  
-<Link className='menuLinks' to='/subItem'><li className='menu-item'>{props.title}</li></Link>
+   <li onClick={ () => handleSubItems(menu)} className='menu-item'>{menu.title}</li>
   ) 
 }
 export default menuItem

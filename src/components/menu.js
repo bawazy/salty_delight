@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import MenuItem from './menuItem'
-import SubItem, { subItem }  from './subItem'
+import SubItem  from './subItem'
 
-export class menu extends Component {
+export class Menu extends Component {
   state = {
     menus:[
       { 
@@ -57,25 +57,48 @@ export class menu extends Component {
         ],
       }
 
-    ]
+    ],
 
+    isSubItems: false,
+    activeSubItems: [],
+    food: ''
+
+  }
+
+  handleSubItems = menu => {
+    this.setState({
+      activeSubItems: menu.subItems, 
+      isSubItems: true,
+      food: menu.title
+    })
   }
 
 
   render() {
+
+    const { isSubItems, menus, activeSubItems, food } = this.state
    
     // console.log(this.state.menus)
     return (
     <div>
-        <h1>OUR MENU </h1>
         
         <ul className='menus'>
-        {this.state.menus.map(menu => {
-          return <MenuItem key={menu.id} index={menu.id} title={menu.title}/>
-        {menu.subItems.map(subItem=>{
-          return <SubItem title ={subItem.itemName}/>
-        })}
-      }   
+        {!isSubItems ? (
+          <Fragment>
+          <h1>OUR MENU </h1>
+          {menus.map(menu => {
+            return <MenuItem handleSubItems={this.handleSubItems} key={menu.id} index={menu.id} menu={menu}/>
+           }   
+          )}
+          </Fragment>
+        ) : (
+          <Fragment>
+          <h1>{food}</h1>
+          {activeSubItems.map((sub, index) => {
+            return <SubItem key={index} index={index} itemName={sub.itemName}/>
+           }   
+          )}
+          </Fragment>
         )}
         </ul>
         
@@ -93,4 +116,4 @@ export class menu extends Component {
   }
 }
 
-export default menu
+export default Menu
