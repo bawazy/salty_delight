@@ -29,14 +29,14 @@ export class Menu extends Component {
         title:'Chicken',
         subItems:[
                               {
-                                itemName:'Pizza 1',
+                                itemName:'Chicken 1',
                               },
 
                               {
-                                itemName:'Pizza 2',
+                                itemName:'Chicken 2',
                               },
                               {
-                                itemName:'Pizza 3',
+                                itemName:'Chicken 3',
                               },
         ],
       },
@@ -45,14 +45,14 @@ export class Menu extends Component {
         title:'Foods',
         subItems:[
                                 {
-                                  itemName:'Pizza 1',
+                                  itemName:'Food 1',
                                 },
 
                                 {
-                                  itemName:'Pizza 2',
+                                  itemName:'Food 2',
                                 },
                                 {
-                                  itemName:'Pizza 3',
+                                  itemName:'Food 3',
                                 },
         ],
       }
@@ -63,6 +63,12 @@ export class Menu extends Component {
     activeSubItems: [],
     food: ''
 
+  }
+
+  handleActiveSubItems = event =>{
+    this.setState({
+      isSubItems:false
+    })
   }
 
   handleSubItems = menu => {
@@ -80,9 +86,9 @@ export class Menu extends Component {
    
     // console.log(this.state.menus)
     return (
+      
     <div>
-        
-        <ul className='menus'>
+        <ul className='menus'>    
         {!isSubItems ? (
           <Fragment>
           <h1>OUR MENU </h1>
@@ -98,6 +104,8 @@ export class Menu extends Component {
             return <SubItem key={index} index={index} itemName={sub.itemName}/>
            }   
           )}
+          
+          <button className='backbtn' onClick={this.handleActiveSubItems}>BACK</button>
           </Fragment>
         )}
         </ul>
