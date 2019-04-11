@@ -170,3 +170,14 @@ margin:20px;
   width:200px;
   height: 200px;
 }
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cart{
+  margin-top: 50px;
+  border: 2px solid red;
+  height: 500px;
+}
