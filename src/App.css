@@ -24,6 +24,15 @@
 .orderBtn{
   display: block; 
   float: right;
+  padding: 15px;
+  border: none;
+  background: #333;
+  color: #fff;
+}
+
+.orderBtn:hover{
+  background: red;
+  color: #fff;
 }
 
 .backbtn{
@@ -155,9 +164,9 @@ border: 1px solid red;
 padding: 17px;
 margin:20px; 
 }
-/* 
-.subItem{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 
-} */
+.subItem img{
+
+  width:200px;
+  height: 200px;
+}
