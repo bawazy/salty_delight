@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class SubItem extends Component {
-  render() {
+ const subItem= props => {
+  const { handleAddToCart, sub,price,itemName,img} = props
     return (
-       <div className='menu-item'>
-      <div className='subItem' > 
-       <h3>{this.props.itemName}</h3>
-        <img src={this.props.img} alt='' />   
-        <button  className='orderBtn'>Order Now</button>
-        <h3> price:{this.props.price}</h3>
-        </div>
+      <div className='menu-item'>
+     <div className='subItem' > 
+      <h3>{itemName}</h3>
+       <img src={img} alt='' />   
+       <button onClick={ () => handleAddToCart(sub) } className='orderBtn'> Order Now </button>
+       <h3> price:{price}</h3>
+       </div>
 
 
 
-      </div>
-    )
-  }
+     </div>
+   )
+  
 }
-
-export default SubItem
-
+export default subItem;
