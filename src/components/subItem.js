@@ -6,7 +6,7 @@ export class SubItem extends Component {
        <div className='menu-item'>
       <div className='subItem' > 
        <h3>{this.props.itemName}</h3>
-        <img src='https://thumbs.dreamstime.com/z/pepperoni-pizza-thinly-sliced-popular-topping-american-style-pizzerias-30402134.jpg' alt='' /> 
+        <img src={this.props.img} alt='' /> 
         <button className='orderBtn'>Order Now</button>
         </div>
       </div>
