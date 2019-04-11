@@ -169,13 +169,11 @@ export class Menu extends Component {
 
         </div>
         {cart.map((cartItem, index) => {
-
         return <Cart
           key={index}
           itemName={cartItem.itemName}
           price={cartItem.price}
-
-              />
+               />
             }   
             )}
 
