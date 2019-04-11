@@ -3,7 +3,13 @@ import React, { Component } from 'react'
 export class SubItem extends Component {
   render() {
     return (
-        <li className='menu-item'>{this.props.itemName}</li>
+      <div className='subItem' >
+        <div className='menu-item'>  
+        <img src='' alt='' />
+        {this.props.itemName}
+        <button className='orderBtn'>Order Now</button>
+        </div>
+      </div>
     )
   }
 }

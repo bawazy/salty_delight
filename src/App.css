@@ -20,6 +20,12 @@
   width: 98%;
   
 }
+
+.orderBtn{
+  display: block; 
+  float: right;
+}
+
 .backbtn{
   border: none;
   background: black;
@@ -135,9 +141,10 @@ img{
   text-align: center;
 }
 
-.menus{
-list-style: none;
-}
+/* .menus{
+/* list-style: none; */
+
+/*} */
 .menuLinks{
   text-decoration: none;
   color: #333;
@@ -147,5 +154,10 @@ list-style: none;
 border: 1px solid red;
 padding: 17px;
 margin:20px; 
-
 }
+/* 
+.subItem{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+} */

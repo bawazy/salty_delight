@@ -4,7 +4,7 @@ import React from 'react'
  const menuItem = props =>{
    const { handleSubItems, menu} = props
   return (  
-   <li onClick={ () => handleSubItems(menu)} className='menu-item'>{menu.title}</li>
+   <div onClick={ () => handleSubItems(menu)} className='menu-item'>{menu.title}</div>
   ) 
 }
 export default menuItem

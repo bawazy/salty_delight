@@ -86,9 +86,9 @@ export class Menu extends Component {
    
     // console.log(this.state.menus)
     return (
-      
+
     <div>
-        <ul className='menus'>    
+        <div className='menus'>    
         {!isSubItems ? (
           <Fragment>
           <h1>OUR MENU </h1>
@@ -108,7 +108,7 @@ export class Menu extends Component {
           <button className='backbtn' onClick={this.handleActiveSubItems}>BACK</button>
           </Fragment>
         )}
-        </ul>
+        </div>
         
 {/* 
         <ul>
