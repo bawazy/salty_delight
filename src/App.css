@@ -176,8 +176,16 @@ margin:20px;
   grid-template-columns: 1fr 1fr;
 }
 
-/* .cart{
+.cart{
+  display: grid;
+  grid-template-columns: 1fr ;
   margin-top: 50px;
-  border: 2px solid red;
+  margin-left:80px;
+  border: 2px dotted red;
   height: 500px;
-} */
+}
+
+.cartItem{
+  text-align: center;
+  
+}

@@ -87,7 +87,7 @@ export class Menu extends Component {
       isSubItems: false,
       activeSubItems: [],
       food: '',
-      
+      total:'',
       cart:[]
   
     }
@@ -110,20 +110,28 @@ export class Menu extends Component {
 
   
   handleAddToCart=(sub)=>{
-    console.log(sub);
+    let { cart } = this.state
+    cart.push(sub)
+    console.log(cart);
       this.setState({
-        cart:sub
-      })
-
+        cart
+      })   
 }
- 
+  
+      handlePrice = (event,price)=>{
+        let amount = event.target.value
+        let tprice=price*amount
+        this.setState({
+          total:tprice
+        })
+      }
+
   render() {
 
     const { isSubItems, menus, activeSubItems, food, cart } = this.state
    
     // console.log(this.state.menus)
     return (
-
     <div className='wrapper'>
         <div className='menus'>    
         {!isSubItems ? (
@@ -135,20 +143,15 @@ export class Menu extends Component {
               key={menu.id}
               index={menu.id}
               menu={menu}
-              
               />
-
            }   
           )}
           </Fragment>
         ) : (
           <Fragment>
           <h1>{food}</h1>
-
           {activeSubItems.map((sub, index) => {
-
             return <SubItem 
-
               key={index}
               index={index} 
               itemName={sub.itemName}
@@ -168,15 +171,21 @@ export class Menu extends Component {
         )}
 
         </div>
-        {cart.map((cartItem, index) => {
-        return <Cart
+        <div className='cart'>
+          {cart.map((cartItem, index) => {
+           return <Cart
           key={index}
           itemName={cartItem.itemName}
           price={cartItem.price}
+          totalPrice={this.handlePrice}
+          total={this.state.total}
+          cartItem={cartItem}
+
                />
             }   
             )}
-
+        </div>
+      
     </div>
     )
   }
