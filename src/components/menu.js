@@ -120,7 +120,7 @@ export class Menu extends Component {
   
       handlePrice = (event,price)=>{
         let amount = event.target.value
-        let tprice=price*amount
+        let tprice = price * amount;
         this.setState({
           total:tprice
         })
@@ -128,7 +128,7 @@ export class Menu extends Component {
 
   render() {
 
-    const { isSubItems, menus, activeSubItems, food, cart } = this.state
+    const { isSubItems, menus, activeSubItems, food, cart,total } = this.state
    
     // console.log(this.state.menus)
     return (
@@ -178,7 +178,7 @@ export class Menu extends Component {
           itemName={cartItem.itemName}
           price={cartItem.price}
           totalPrice={this.handlePrice}
-          total={this.state.total}
+          total={total}
           cartItem={cartItem}
 
                />
