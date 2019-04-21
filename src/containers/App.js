@@ -1,9 +1,14 @@
-import React, { Component, Fragment } from 'react'
-import MenuItem from './menuItem'
-import SubItem  from './subItem'
-import Cart from './cart';
+import React, { Component } from 'react';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
+import Header from '../layouts/header';
+import Body from '../layouts/body';
+import Menu from '../containers/menu';
+import Contact from '../components/contact';
+import SubItem from '../components/subItem';
+import Footer from '../layouts/footer';
+import './App.css';
 
-export class Menu extends Component {
+class App extends Component {
   constructor(){
     super();
 
@@ -83,7 +88,6 @@ export class Menu extends Component {
         }
   
       ],
-  
       isSubItems: false,
       activeSubItems: [],
       food: '',
@@ -118,77 +122,58 @@ export class Menu extends Component {
       })   
 }
   
-      handlePrice = (event,price)=>{
+      handlePrice = (event,price) => {
         let amount = event.target.value
         let tprice = price * amount;
+     console.log(tprice)
         this.setState({
           total:tprice
         })
+           
       }
-
+    
+  
+  
+  
+  
   render() {
-
     const { isSubItems, menus, activeSubItems, food, cart,total } = this.state
-   
-    // console.log(this.state.menus)
-    return (
-    <div className='wrapper'>
-        <div className='menus'>    
-        {!isSubItems ? (
-          <Fragment>
-          <h1>OUR MENU </h1>
-          {menus.map(menu => {
-            return <MenuItem 
+    return ( 
+      <Router>
+        <div className='app'>
+         <Header />
+            <div className='container'>
+                <Route exact path='/' render={props =>(
+                   <React.Fragment>
+                        <Body  />
+                   </React.Fragment>
+                  ) }/> 
+
+            <Route path='/contact' component={Contact}  />
+            <Route path='/menu'  render={(props)=> 
+            <Menu 
+              {...props}  
+              isSubItems={isSubItems}
+              menus={menus}
+              activeSubItems={activeSubItems}
+              food={food}
+              cart={cart}
+              total={total}
               handleSubItems={this.handleSubItems} 
-              key={menu.id}
-              index={menu.id}
-              menu={menu}
-              />
-           }   
-          )}
-          </Fragment>
-        ) : (
-          <Fragment>
-          <h1>{food}</h1>
-          {activeSubItems.map((sub, index) => {
-            return <SubItem 
-              key={index}
-              index={index} 
-              itemName={sub.itemName}
-              img={sub.img}
-              price={sub.price}
               handleAddToCart={this.handleAddToCart}
-              sub = {sub}
-              
-              />
-
-              
-           }   
-          )}
-          
-          <button className='backbtn' onClick={this.handleActiveSubItems}>BACK</button>
-          </Fragment>
-        )}
+              handleActiveSubItems={this.handleActiveSubItems}
+              totalPrice={this.handlePrice}
+              />}/>
+            <Route path='/subItem'  component={SubItem}/>
+            </div>
+     
+            <Footer />
 
         </div>
-        <div className='cart'>
-          {cart.map((cartItem, index) => {
-           return <Cart
-          key={index}
-          itemName={cartItem.itemName}
-          price={cartItem.price}
-          totalPrice={this.handlePrice}
-          total={total}
-          cartItem={cartItem}
-
-               />
-            }   
-            )}
-        </div>
+     </Router>
       
-    </div>
     )
   }
 }
 
-export default Menu
+export default App;

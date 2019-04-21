@@ -178,14 +178,16 @@ margin:20px;
 
 .cart{
   display: grid;
+  /* position: relative; */
   grid-template-columns: 1fr ;
   margin-top: 50px;
   margin-left:80px;
   border: 2px dotted red;
-  height: 500px;
+  min-height: 10%;
 }
 
 .cartItem{
+  /* position: absolute; */
   text-align: center;
-  
+
 }
