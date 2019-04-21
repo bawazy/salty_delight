@@ -1,10 +1,16 @@
 import {
-    LOAD_MENUS
-
+    LOAD_MENUS,
+    GET_SUB_ITEMS
 } from './constants'
 
+// import { menus } from'./menus'
 
-export const setMenus = (menu) => ({
+export const setMenus = (menus) => ({
     type:LOAD_MENUS,
-    payload:menu
+    payload:menus
+})
+
+export const setSubItems = (subItems)=>({
+    type:GET_SUB_ITEMS,
+    payload:subItems
 })

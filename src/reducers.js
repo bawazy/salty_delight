@@ -1,20 +1,27 @@
-import {
-    LOAD_MENUS
+// import {
+//     LOAD_MENUS
 
-} from './constants'
+// } from './constants' 
 
-// import { menus } from'./menus'
+import { menus } from'./menus'
 
 const initialMenu = {
-    menus:[]
+    menus:menus, 
+    isSubItems:false,
+    activeSubItems:[],
+    food:'',
+    total:'',
+    cart:[]
 }
 
-export const setMenus =(state=initialMenu, action={}) => {
-    switch(action.type){
-        case LOAD_MENUS:
-        return Object.assign({}, state, {menus:action.payload})
-        default:
-            return state;
-    }
-
+export const getMenus = (state=initialMenu) => {
+  return state
 }
+
+// export const setSubItems = (state=initialMenu,action={})=>{
+//     switch (action.type){
+//         case GET_SUB_ITEMS:
+//         return Object.assign({}, state.menus.subItems)
+//     }
+    
+// }
