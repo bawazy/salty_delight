@@ -10,18 +10,20 @@ import Footer from '../layouts/footer';
 import './App.css';
 
 
-import { setMenus } from '../actions'
+import { setMenus, setSubItems  } from '../actions'
 
 const mapStateToProps = state => {
   return {
-      menus: state.menus
+      menus: state.selectSubItem.menus,
+      isSubItems: state.selectSubItem.isSubItems,
+      activeSubItems: state.selectSubItem.activeSubItems,
   }
 }
 
 
 const mapDispatchToProps = (dispatch) =>{
   return{
-
+    handleSetMenus: (data) => dispatch(setMenus(data))  
   }
 }
 
@@ -112,7 +114,7 @@ class App extends Component {
   
     //   ],
       isSubItems: false,
-      activeSubItems: [],
+      // activeSubItems: [],
       food: '',
       total:'',
       cart:[]
@@ -128,11 +130,14 @@ class App extends Component {
   }
 
   handleSubItems = menu => {
-    this.setState({
-      activeSubItems: menu.subItems, 
-      isSubItems: true,
+    console.log('hello')
+    const data = {
+      subItems: menu.subItems, 
       food: menu.title
-    })
+    }
+    const { handleSetMenus  } = this.props
+    
+    handleSetMenus(data)
   }
 
   
@@ -156,8 +161,8 @@ class App extends Component {
       }
 
   render() {
-    const { isSubItems, activeSubItems, food, cart,total } = this.state
-    const { menus } =this.props
+    const { food, cart,total } = this.state
+    const { menus, handleSetMenus, isSubItems, activeSubItems } =this.props
     return ( 
       <Router>
         <div className='app'>

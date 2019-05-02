@@ -5,9 +5,9 @@ import {
 
 // import { menus } from'./menus'
 
-export const setMenus = (menus) => ({
-    type:LOAD_MENUS,
-    payload:menus
+export const setMenus = (data) => ({
+    type: LOAD_MENUS,
+    payload: data
 })
 
 export const setSubItems = (subItems)=>({
