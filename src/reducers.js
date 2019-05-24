@@ -1,5 +1,6 @@
 import {
-    LOAD_MENUS
+    LOAD_MENUS,
+    BACK_TO_MENU
 
 } from './constants' 
 
@@ -23,16 +24,11 @@ export const selectSubItem = (state=initialMenu, action={}) =>{
   switch (action.type){
     case LOAD_MENUS: 
       return {...state, isSubItems: true, activeSubItems: action.payload.subItems, food: action.payload.food}
+    case BACK_TO_MENU:
+    return{...state,isSubItems:false}
     default:
       return state
   }
 
 }
 
-// export const setSubItems = (state=initialMenu,action={})=>{
-//     switch (action.type){
-//         case GET_SUB_ITEMS:
-//         return {...state, state.menus.subItems}
-//     }
-    
-// }

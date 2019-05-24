@@ -1,6 +1,7 @@
 import {
     LOAD_MENUS,
-    GET_SUB_ITEMS
+    GET_SUB_ITEMS,
+    BACK_TO_MENU
 } from './constants'
 
 // import { menus } from'./menus'
@@ -8,6 +9,10 @@ import {
 export const setMenus = (data) => ({
     type: LOAD_MENUS,
     payload: data
+})
+export const backToMenu = (menu) =>({
+    type:BACK_TO_MENU,
+    payload:menu
 })
 
 export const setSubItems = (subItems)=>({

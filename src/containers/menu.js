@@ -3,7 +3,7 @@ import MenuItem from '../components/menuItem'
 import SubItem  from '../components/subItem'
 import Cart from '../components/cart';
 
-export class Menu extends Component {
+ class Menu extends Component {
  
   render() {
 

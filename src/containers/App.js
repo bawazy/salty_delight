@@ -10,20 +10,22 @@ import Footer from '../layouts/footer';
 import './App.css';
 
 
-import { setMenus, setSubItems  } from '../actions'
+import { setMenus, backToMenu  } from '../actions'
+// import { backToMenu } from '../reducers';
 
 const mapStateToProps = state => {
   return {
       menus: state.selectSubItem.menus,
       isSubItems: state.selectSubItem.isSubItems,
-      activeSubItems: state.selectSubItem.activeSubItems,
+      activeSubItems: state.selectSubItem.activeSubItems
   }
 }
 
 
 const mapDispatchToProps = (dispatch) =>{
   return{
-    handleSetMenus: (data) => dispatch(setMenus(data))  
+    handleSetMenus: (data) => dispatch(setMenus(data)),
+    handleActiveSubItems:(menu) => dispatch(backToMenu(menu))
   }
 }
 
@@ -113,8 +115,8 @@ class App extends Component {
     //     }
   
     //   ],
-      isSubItems: false,
-      // activeSubItems: [],
+    //  isSubItems: false,
+     // activeSubItems: [],
       food: '',
       total:'',
       cart:[]
@@ -123,11 +125,12 @@ class App extends Component {
   }
   
 
-  handleActiveSubItems = () =>{
-    this.setState({
-      isSubItems:false
-    })
-  }
+  // handleActiveSubItems = () =>{
+  //   console.log('hello');
+  //   this.setState({
+  //     isSubItems:false
+  //   })
+  // }
 
   handleSubItems = menu => {
     console.log('hello')
@@ -162,7 +165,7 @@ class App extends Component {
 
   render() {
     const { food, cart,total } = this.state
-    const { menus, handleSetMenus, isSubItems, activeSubItems } =this.props
+    const { menus, isSubItems, activeSubItems,handleActiveSubItems } =this.props
     return ( 
       <Router>
         <div className='app'>
@@ -186,7 +189,7 @@ class App extends Component {
               total={total}
               handleSubItems={this.handleSubItems} 
               handleAddToCart={this.handleAddToCart}
-              handleActiveSubItems={this.handleActiveSubItems}
+              handleActiveSubItems={handleActiveSubItems}
               totalPrice={this.handlePrice}
               />}/>
             <Route path='/subItem'  component={SubItem}/>
