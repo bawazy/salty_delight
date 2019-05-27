@@ -132,16 +132,16 @@ class App extends Component {
   //   })
   // }
 
-  handleSubItems = menu => {
-    console.log('hello')
-    const data = {
-      subItems: menu.subItems, 
-      food: menu.title
-    }
-    const { handleSetMenus  } = this.props
+  // handleSubItems = menu => {
+  //   console.log('hello')
+  //   const data = {
+  //     subItems: menu.subItems, 
+  //     food: menu.title
+  //   }
+  //   const { handleSetMenus  } = this.props
     
-    handleSetMenus(data)
-  }
+  //   handleSetMenus(data)
+  // }
 
   
   handleAddToCart=(sub)=>{
@@ -165,7 +165,7 @@ class App extends Component {
 
   render() {
     const { food, cart,total } = this.state
-    const { menus, isSubItems, activeSubItems,handleActiveSubItems } =this.props
+    const { menus, isSubItems, activeSubItems,handleActiveSubItems,handleSetMenus } =this.props
     return ( 
       <Router>
         <div className='app'>
@@ -187,7 +187,7 @@ class App extends Component {
               food={food}
               cart={cart}
               total={total}
-              handleSubItems={this.handleSubItems} 
+              handleSubItems={handleSetMenus} 
               handleAddToCart={this.handleAddToCart}
               handleActiveSubItems={handleActiveSubItems}
               totalPrice={this.handlePrice}
